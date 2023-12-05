@@ -41,7 +41,7 @@ public class TestColourTable {
     @DisplayName("Ensure that exception is thrown when colour is attempted to be added to the full palette")
     public void addColourToFullPalette() throws Exception {
         // fill palette with colours
-        colourTable.add(0x000000);
+        colourTable.add(0x0000ff);
         colourTable.add(0x000001);
         colourTable.add(0x000002);
         colourTable.add(0x000003);
@@ -60,10 +60,10 @@ public class TestColourTable {
     @DisplayName("Ensure the duplicate colour is ignored when attempted to be added to palette")
     public void ignoreDuplicateColour() throws Exception {
         int duplicateColour = 0xFFFFFF;
-
         // add value to the palette
         colourTable.add(duplicateColour);
-        // try to add the same value again
-        assertThrows(Exception.class, () -> colourTable.add(duplicateColour));
+        // add the same value to the palette again
+        colourTable.add(duplicateColour);
+        assertEquals(0, colourTable.getPalette(1));
     }
 }
