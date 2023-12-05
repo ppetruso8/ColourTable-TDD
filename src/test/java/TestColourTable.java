@@ -8,4 +8,11 @@ public class TestColourTable {
         ColourTable colourTable = new ColourTable(noColours);
         assertNotNull(colourTable);
     }
+
+    @Test
+    public void testArray() throws Exception{
+        int noColours = 8;
+        ColourTable colourTable = new ColourTable(noColours);
+        assertEquals(noColours, colourTable.getPaletteSize());
+    }
 }
