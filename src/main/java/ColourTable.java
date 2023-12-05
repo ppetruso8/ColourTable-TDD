@@ -6,11 +6,11 @@ public class ColourTable {
             throw new IllegalArgumentException("Number of colours in the palette must be" +
                     " a power of two and greater than 1 and less than 1025.");
         }
-        palette = new int[noColours];
+        this.palette = new int[noColours];
     }
 
     public int getPaletteSize() {
-        return palette.length;
+        return this.palette.length;
     }
 
     private boolean isPowerOfTwo(int number) {
@@ -28,5 +28,9 @@ public class ColourTable {
         }
 
         return number == 1;
+    }
+
+    public void add(int rgb) {
+        int addColour = rgb;
     }
 }
