@@ -10,6 +10,23 @@ public class ColourTable {
         this.palette = new int[noColours];
     }
 
+    public void add(int rgb) throws Exception {
+        if (!isRGBValid(rgb)) {
+            throw new IllegalArgumentException("Invalid RGB value");
+        }
+
+        if (isPaletteFull()) {
+            throw new Exception("Palette of the colour table is full");
+        }
+
+        this.palette[this.nextIndex] = rgb;
+        this.nextIndex++;
+    }
+
+    public int getPalette(int index) {
+        return this.palette[index];
+    }
+
     public int getPaletteSize() {
         return this.palette.length;
     }
@@ -30,20 +47,11 @@ public class ColourTable {
         return number == 1;
     }
 
-    public void add(int rgb) throws Exception {
-        if (rgb < 0 || rgb > 16777216) {
-            throw new IllegalArgumentException("Invalid RGB value");
-        }
-
-        if (this.nextIndex >= this.palette.length) {
-            throw new Exception("Palette of the colour table is full");
-        }
-
-        this.palette[this.nextIndex] = rgb;
-        this.nextIndex++;
+    private boolean isRGBValid(int rgb) {
+        return rgb >= 0 && rgb <= 16777216;
     }
 
-    public int getPalette(int index) {
-        return this.palette[index];
+    private boolean isPaletteFull() {
+        return this.nextIndex >= this.palette.length;
     }
 }
