@@ -43,4 +43,10 @@ public class TestColourTable {
         // add colour to full palette
         assertThrows(Exception.class, () -> colourTable.add(0x000004));
     }
+
+    @Test
+    public void addInvalidRGBValue() throws Exception {
+        int invalidRGB = 0xFFFFFFF;
+        assertThrows(IllegalArgumentException.class, () -> colourTable.add(invalidRGB));
+    }
 }
