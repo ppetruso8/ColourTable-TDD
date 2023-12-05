@@ -16,7 +16,7 @@ public class ColourTable {
         }
 
         if (isPaletteFull()) {
-            throw new Exception("Palette of the colour table is full");
+            throw new Exception("Palette is full");
         }
 
         if (!inPalette(rgb)) {
