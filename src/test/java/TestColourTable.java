@@ -26,4 +26,8 @@ public class TestColourTable {
         assertThrows(IllegalArgumentException.class, () -> new ColourTable(noColours));
     }
 
+    @Test
+    public void testAddColour() throws Exception {
+        colourTable.add(0x000000);
+    }
 }
