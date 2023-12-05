@@ -12,11 +12,6 @@ public class TestColourTable {
     }
 
     @Test
-    public void createColourTable() throws Exception {
-        assertNotNull(colourTable);
-    }
-
-    @Test
     public void testArray() throws Exception {
         int expectedSize = 8;
         assertEquals(expectedSize, colourTable.getPaletteSize());
