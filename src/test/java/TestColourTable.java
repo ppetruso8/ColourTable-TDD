@@ -10,19 +10,19 @@ public class TestColourTable {
     private ColourTable colourTable;
 
     @BeforeEach
-    public void setUp() throws Exception {
+    public void setUp() {
         colourTable = new ColourTable(4);
     }
 
     @Test
-    public void testArray() throws Exception {
+    public void testArray() {
         int expectedSize = 4;
         assertEquals(expectedSize, colourTable.getPaletteSize());
     }
 
     @ParameterizedTest
     @ValueSource(ints = {1, 7, 1025})
-    public void invalidNoColoursValue(int noColours) throws Exception {
+    public void invalidNoColoursValue(int noColours) {
         assertThrows(IllegalArgumentException.class, () -> new ColourTable(noColours));
     }
 
@@ -45,7 +45,7 @@ public class TestColourTable {
     }
 
     @Test
-    public void addInvalidRGBValue() throws Exception {
+    public void addInvalidRGBValue() {
         int invalidRGB = 0xFFFFFFF;
         assertThrows(IllegalArgumentException.class, () -> colourTable.add(invalidRGB));
     }
