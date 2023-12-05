@@ -15,7 +15,6 @@ public class ColourTable {
     }
 
     private boolean isPowerOfTwo(int number) {
-
         if (number <= 0) {
             return false;
         }
@@ -32,9 +31,14 @@ public class ColourTable {
     }
 
     public void add(int rgb) throws Exception {
+        if (rgb < 0 || rgb > 16777216) {
+            throw new IllegalArgumentException("Invalid RGB value");
+        }
+
         if (this.nextIndex >= this.palette.length) {
             throw new Exception("Palette of the colour table is full");
         }
+
         this.palette[this.nextIndex] = rgb;
         this.nextIndex++;
     }
