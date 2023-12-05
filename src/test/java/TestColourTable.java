@@ -22,8 +22,8 @@ public class TestColourTable {
 
     @ParameterizedTest
     @ValueSource(ints = {1, 7, 1025})
-    public void invalidNoColoursValue() throws Exception {
-        int noColours = 1025;
+    public void invalidNoColoursValue(int noColours) throws Exception {
         assertThrows(IllegalArgumentException.class, () -> new ColourTable(noColours));
     }
+
 }
