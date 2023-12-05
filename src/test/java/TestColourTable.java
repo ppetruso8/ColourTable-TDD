@@ -28,6 +28,8 @@ public class TestColourTable {
 
     @Test
     public void testAddColour() throws Exception {
-        colourTable.add(0x000000);
+        int colourToAdd = 0x000000;
+        colourTable.add(colourToAdd);
+        assertEquals(colourToAdd, colourTable.getPalette(0));
     }
 }
