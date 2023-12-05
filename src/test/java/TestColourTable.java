@@ -49,7 +49,7 @@ public class TestColourTable {
         colourTable.add(0x000002);
         colourTable.add(0x000003);
         // add colour to full palette
-        assertThrows(Exception.class, () -> colourTable.add(0x000004),
+        assertThrows(PaletteFullException.class, () -> colourTable.add(0x000004),
                 "Colour should not be added into a full palette");
     }
 
