@@ -16,7 +16,7 @@ public class TestColourTable {
 
     @Test
     public void testArray() throws Exception {
-        int expectedSize = 8;
+        int expectedSize = 4;
         assertEquals(expectedSize, colourTable.getPaletteSize());
     }
 

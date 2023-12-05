@@ -31,9 +31,12 @@ public class ColourTable {
         return number == 1;
     }
 
-    public void add(int rgb) {
-        this.palette[nextIndex] = rgb;
-        nextIndex++;
+    public void add(int rgb) throws Exception {
+        if (this.nextIndex >= this.palette.length) {
+            throw new Exception("Palette of the colour table is full");
+        }
+        this.palette[this.nextIndex] = rgb;
+        this.nextIndex++;
     }
 
     public int getPalette(int index) {
