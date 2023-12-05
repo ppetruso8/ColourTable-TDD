@@ -55,4 +55,15 @@ public class TestColourTable {
         int invalidRGB = 0xFFFFFFF;
         assertThrows(IllegalArgumentException.class, () -> colourTable.add(invalidRGB));
     }
+
+    @Test
+    @DisplayName("Ensure the duplicate colour is ignored when attempted to be added to palette")
+    public void ignoreDuplicateColour() throws Exception {
+        int duplicateColour = 0xFFFFFF;
+
+        // add value to the palette
+        colourTable.add(duplicateColour);
+        // try to add the same value again
+        assertThrows(Exception.class, () -> colourTable.add(duplicateColour));
+    }
 }
