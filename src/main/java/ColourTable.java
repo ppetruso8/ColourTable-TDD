@@ -19,8 +19,10 @@ public class ColourTable {
             throw new Exception("Palette of the colour table is full");
         }
 
-        this.palette[this.nextIndex] = rgb;
-        this.nextIndex++;
+        if (!inPalette(rgb)) {
+            this.palette[this.nextIndex] = rgb;
+            this.nextIndex++;
+        }
     }
 
     public int getPalette(int index) {
@@ -53,5 +55,15 @@ public class ColourTable {
 
     private boolean isPaletteFull() {
         return this.nextIndex >= this.palette.length;
+    }
+
+    private boolean inPalette(int rgb) {
+        for (int colour : this.palette) {
+            if (rgb == colour) {
+                return true;
+            }
+        }
+
+        return false;
     }
 }
