@@ -1,5 +1,5 @@
 public class ColourTable {
-    private int[] palette;
+    private Integer[] palette;
     private int nextIndex = 0;
 
     public ColourTable(int noColours) {
@@ -7,7 +7,7 @@ public class ColourTable {
             throw new IllegalArgumentException("Number of colours in the palette must be" +
                     " a power of two and greater than 1 and less than 1025.");
         }
-        this.palette = new int[noColours];
+        this.palette = new Integer[noColours];
     }
 
     public void add(int rgb) throws Exception {
@@ -25,7 +25,7 @@ public class ColourTable {
         }
     }
 
-    public int getPalette(int index) {
+    public Integer getPalette(int index) {
         return this.palette[index];
     }
 
@@ -58,8 +58,8 @@ public class ColourTable {
     }
 
     private boolean inPalette(int rgb) {
-        for (int colour : this.palette) {
-            if (rgb == colour) {
+        for (Integer colour : this.palette) {
+            if (colour != null && rgb == colour) {
                 return true;
             }
         }
