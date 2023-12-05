@@ -15,4 +15,10 @@ public class TestColourTable {
         ColourTable colourTable = new ColourTable(noColours);
         assertEquals(noColours, colourTable.getPaletteSize());
     }
+
+    @Test
+    public void testInvalidNoColours() throws Exception{
+        int noColours = 1025;
+        assertThrows(IllegalArgumentException.class, () -> new ColourTable(noColours));
+    }
 }
