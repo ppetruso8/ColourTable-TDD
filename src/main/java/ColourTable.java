@@ -3,7 +3,7 @@ public class ColourTable {
     private int nextIndex = 0;
 
     public ColourTable(int noColours) {
-        if (!isPowerOfTwo(noColours) || noColours <= 1 || noColours >= 1025) {
+        if (!isSizeValid(noColours)) {
             throw new IllegalArgumentException("Number of colours in the palette must be" +
                     " a power of two and greater than 1 and less than 1025.");
         }
@@ -65,5 +65,9 @@ public class ColourTable {
         }
 
         return false;
+    }
+
+    private boolean isSizeValid(int noColours) {
+        return isPowerOfTwo(noColours) && noColours > 1 && noColours < 1025;
     }
 }
