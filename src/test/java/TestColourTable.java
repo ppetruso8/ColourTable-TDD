@@ -1,19 +1,25 @@
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class TestColourTable {
+
+    private ColourTable colourTable;
+
+    @BeforeEach
+    public void setUp() throws Exception {
+        colourTable = new ColourTable(8);
+    }
+
     @Test
     public void createColourTable() throws Exception {
-        int noColours = 8;
-        ColourTable colourTable = new ColourTable(noColours);
         assertNotNull(colourTable);
     }
 
     @Test
     public void testArray() throws Exception {
-        int noColours = 8;
-        ColourTable colourTable = new ColourTable(noColours);
-        assertEquals(noColours, colourTable.getPaletteSize());
+        int expectedSize = 8;
+        assertEquals(expectedSize, colourTable.getPaletteSize());
     }
 
     @Test
