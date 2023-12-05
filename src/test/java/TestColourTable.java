@@ -28,7 +28,7 @@ public class TestColourTable {
 
     @Test
     public void testAddColour() throws Exception {
-        int colourToAdd = 0x000000;
+        int colourToAdd = 0xFFFFFF;
         colourTable.add(colourToAdd);
         assertEquals(colourToAdd, colourTable.getPalette(0));
     }
