@@ -11,7 +11,7 @@ public class TestColourTable {
 
     @BeforeEach
     public void setUp() throws Exception {
-        colourTable = new ColourTable(8);
+        colourTable = new ColourTable(4);
     }
 
     @Test
@@ -31,5 +31,16 @@ public class TestColourTable {
         int colourToAdd = 0xFFFFFF;
         colourTable.add(colourToAdd);
         assertEquals(colourToAdd, colourTable.getPalette(0));
+    }
+
+    @Test
+    public void addColourToFullPalette() throws Exception {
+        // fill palette with colours
+        colourTable.add(0x000000);
+        colourTable.add(0x000001);
+        colourTable.add(0x000002);
+        colourTable.add(0x000003);
+        // add colour to full palette
+        assertThrows(Exception.class, () -> colourTable.add(0x000004));
     }
 }
