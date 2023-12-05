@@ -64,7 +64,7 @@ public class TestColourTable {
         colourTable.add(duplicateColour);
         // add the same value to the palette again
         colourTable.add(duplicateColour);
-        assertEquals(null, colourTable.getPalette(1));
+        assertNull(colourTable.getPalette(1));
     }
 
     @Test
