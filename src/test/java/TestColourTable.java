@@ -32,6 +32,22 @@ public class TestColourTable {
     }
 
     @Test
+    @DisplayName("Ensure that getPalette method returns value correctly")
+    public void testGetPalette() throws Exception {
+        int colourToAdd = 0xFFFFFF;
+        colourTable.add(colourToAdd);
+        assertEquals(colourToAdd, colourTable.getPalette(0));
+    }
+
+    @Test
+    @DisplayName("Ensure that getPalette throws an exception when invalid index is passed")
+    public void testGetPaletteInvalidIndex() throws Exception {
+        int invalidIndex = 5;
+        assertThrows(IndexOutOfBoundsException.class, () -> colourTable.getPalette(invalidIndex),
+                "Invalid index passed in to getPalette method should throw an exception");
+    }
+
+    @Test
     @DisplayName("Ensure that colour is added to the palette")
     public void testAddColour() throws Exception {
         int colourToAdd = 0xFFFFFF;
