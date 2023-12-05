@@ -66,4 +66,12 @@ public class TestColourTable {
         colourTable.add(duplicateColour);
         assertEquals(0, colourTable.getPalette(1));
     }
+
+    @Test
+    @DisplayName("Ensure proper handling of 0 value being added to the palette")
+    public void addZero() throws Exception {
+        colourTable.add(0x000000);
+        colourTable.add(0x000001);
+        assertEquals(1, colourTable.getPalette(1));
+    }
 }
